@@ -103,7 +103,49 @@ from __python__ import dict_literals, overload_getitem
 print('\n\nWITH dict_literals')
 runTests()
 
+"""
+#see: context
+context RAPYDSCRIPT
 
+#good printing
+
+{}
+D.keys()	 ["a", "b", "c", "d"]
+D.values()	 [1, 2, 3, 4]
+D.items()	 [["a", 1], ["b", 2], ["c", 3], ["d", 4]]
+D {a:1, b:2, c:3, d:4}
+D['a']==D.a True
+
+without dict_literals
+     {}: 5.068ms
+Type error: keys, values, items, are not functions
+# nothing to show
+
+DICT(): 26.921ms
+D {c:3} 		D.keys() ["c"] 		D.values() [3] 		D.items() [["c", 3]]
+#good printing
+
+dict(): 34.902ms
+D {} 		D.keys() [object Map Iterator] 		D.values() [object Map Iterator] 		D.items() [object Map Iterator]
+#opaque
+
+
+WITH dict_literals
+#dict literals slow {} and somewhat DICT
+
+     {}: 24.405ms
+Type error: keys, values, items, are not functions
+
+DICT(): 36.860ms
+D {c:3} 		D.keys() ["c"] 		D.values() [3] 		D.items() [["c", 3]]
+
+dict(): 34.072ms
+D {} 		D.keys() [object Map Iterator] 		D.values() [object Map Iterator] 		D.items() [object Map Iterator]
+
+
+
+
+"""
 
 
 
